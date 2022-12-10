@@ -18,7 +18,7 @@ pipeline {
         stage('run molecule') {
             steps {
                 dir('freestyle') {
-                sh 'molecule test'
+                sh 'molecule test -s centos8'
                 }
             }
         }
