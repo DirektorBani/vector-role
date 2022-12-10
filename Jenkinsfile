@@ -5,7 +5,9 @@ pipeline {
     stages {
         stage('Git clone') {
             steps {
-               git branch: 'dev', url: 'https://github.com/DirektorBani/vector-role.git' 
+                dir('freestyle') {
+                git branch: 'dev', url: 'https://github.com/DirektorBani/vector-role.git' 
+                }
             }
         }
         stage ('download molecule') {
@@ -15,7 +17,9 @@ pipeline {
         }
         stage('run molecule') {
             steps {
+                dir('freestyle') {
                 sh 'molecule test'
+                }
             }
         }
     }
